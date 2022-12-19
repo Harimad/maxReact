@@ -1,39 +1,14 @@
-// import React from 'react'
-// import ReactDOM from 'react-dom/client'
-// import App from './App'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
 
-// const root = ReactDOM.createRoot(document.getElementById('root'))
-// root.render(
-//   // <React.StrictMode>
-//   <App />
-//   // </React.StrictMode>
-// )
+import './index.css'
+import App from './App'
+import store from './store/index'
 
-const redux = require('redux')
-
-const counterReducer = (state = { counter: 0 }, action) => {
-  if (action.type === 'increment') {
-    return {
-      counter: state.counter + 1,
-    }
-  }
-  if (action.type === 'decrement') {
-    return {
-      counter: state.counter - 1,
-    }
-  }
-}
-
-const store = redux.createStore(counterReducer)
-
-console.log(store.getState())
-
-const coutnerSubscriber = () => {
-  const latestState = store.getState()
-  console.log(latestState)
-}
-
-store.subscribe(coutnerSubscriber)
-
-store.dispatch({ type: 'increment' })
-store.dispatch({ type: 'decrement' })
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
