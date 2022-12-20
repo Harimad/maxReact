@@ -4,18 +4,19 @@ import { counterActions } from '../store'
 import classes from './Counter.module.css'
 
 const Counter = () => {
-  const counter = useSelector(state => state.counter)
+  const counter = useSelector(state => state.counter.counter)
+  console.log(counter)
 
   const dispatch = useDispatch()
 
-  const show = useSelector(state => state.showCounter)
+  const show = useSelector(state => state.counter.showCounter)
 
   const incrementHandler = () => {
     dispatch(counterActions.increment())
   }
 
   const increaseHandler = () => {
-    dispatch(counterActions.increase(5))
+    dispatch(counterActions.increase(5)) // {type: SOME_UNIQUE_IDENTIFIER, payload: 5}
   }
   const decrementHandler = () => {
     dispatch(counterActions.decrement())
