@@ -1,9 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
-import classes from "./CartItem.module.css";
-import { cartActions } from "../../store/card-slice";
+import classes from './CartItem.module.css';
+import { cartActions } from '../../store/cart-slice';
 
-const CartItem = props => {
+const CartItem = (props) => {
   const dispatch = useDispatch();
 
   const { title, quantity, total, price, id } = props.item;
@@ -27,7 +27,7 @@ const CartItem = props => {
       <header>
         <h3>{title}</h3>
         <div className={classes.price}>
-          ${total.toFixed(2)}{" "}
+          ${total.toFixed(2)}{' '}
           <span className={classes.itemprice}>(${price.toFixed(2)}/item)</span>
         </div>
       </header>
